@@ -16,28 +16,30 @@ export default function PerformanceTasks() {
       </div>
 
       <div className={styles.card}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Task</th>
-              <th>Date / Period</th>
-              <th className={styles.numeric}>Score</th>
-              <th className={styles.numeric}>Max</th>
-              <th>Remarks</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tasks.map((row, i) => (
-              <tr key={i}>
-                <td>{row.task}</td>
-                <td className={styles.muted}>{row.date}</td>
-                <td className={`${styles.numeric} ${styles.score}`}>{row.score}</td>
-                <td className={`${styles.numeric} ${styles.muted}`}>{row.maxScore}</td>
-                <td className={styles.muted}>{row.remarks}</td>
+        <div className={styles.tableScroll}>
+          <table className={`${styles.table} ${styles.performanceTable}`}>
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Date / Period</th>
+                <th className={styles.numeric}>Score</th>
+                <th className={styles.numeric}>Max</th>
+                <th>Remarks</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {tasks.map((row, i) => (
+                <tr key={i}>
+                  <td>{row.task}</td>
+                  <td className={styles.muted}>{row.term}{row.due ? ` · ${row.due}` : ''}</td>
+                  <td className={`${styles.numeric} ${styles.score}`}>{row.score}</td>
+                  <td className={`${styles.numeric} ${styles.muted}`}>{row.maxScore}</td>
+                  <td className={styles.muted}>{row.remarks}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <p className={styles.hint}>

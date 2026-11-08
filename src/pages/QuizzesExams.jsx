@@ -18,52 +18,56 @@ export default function QuizzesExams() {
       <div className={styles.section}>
         <h3 className={styles.sectionTitle}>Quizzes</h3>
         <div className={styles.card}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Term</th>
-                <th className={styles.numeric}>Score</th>
-                <th className={styles.numeric}>Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.quizzes.map((q, i) => (
-                <tr key={i}>
-                  <td>{q.title}</td>
-                  <td className={styles.muted}>{q.term}</td>
-                  <td className={`${styles.numeric} ${styles.score}`}>{q.score}</td>
-                  <td className={`${styles.numeric} ${styles.muted}`}>{q.total}</td>
+          <div className={styles.tableScroll}>
+            <table className={`${styles.table} ${styles.assessmentTable}`}>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Term</th>
+                  <th className={styles.numeric}>Score</th>
+                  <th className={styles.numeric}>Total</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {data.quizzes.map((q, i) => (
+                  <tr key={i}>
+                    <td>{q.title}</td>
+                    <td className={styles.muted}>{q.term}</td>
+                    <td className={`${styles.numeric} ${styles.score}`}>{q.score}</td>
+                    <td className={`${styles.numeric} ${styles.muted}`}>{q.total}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
       <div className={styles.section}>
         <h3 className={styles.sectionTitle}>Examinations</h3>
         <div className={styles.card}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th>Exam</th>
-                <th>Date</th>
-                <th className={styles.numeric}>Score</th>
-                <th className={styles.numeric}>Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.exams.map((e, i) => (
-                <tr key={i}>
-                  <td>{e.title}</td>
-                  <td className={styles.muted}>{e.date}</td>
-                  <td className={`${styles.numeric} ${styles.score}`}>{e.score}</td>
-                  <td className={`${styles.numeric} ${styles.muted}`}>{e.total}</td>
+          <div className={styles.tableScroll}>
+            <table className={`${styles.table} ${styles.assessmentTable}`}>
+              <thead>
+                <tr>
+                  <th>Exam</th>
+                  <th>Date</th>
+                  <th className={styles.numeric}>Score</th>
+                  <th className={styles.numeric}>Total</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {data.exams.map((e, i) => (
+                  <tr key={i}>
+                    <td>{e.title}</td>
+                    <td className={styles.muted}>{e.due}</td>
+                    <td className={`${styles.numeric} ${styles.score}`}>{e.score}</td>
+                    <td className={`${styles.numeric} ${styles.muted}`}>{e.total}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 

@@ -6,14 +6,33 @@
 
 /* ── Hero ───────────────────────────────────────────────── */
 .hero {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   min-height: calc(100svh - 56px);
   overflow: hidden;
 }
 
+/* Grid pattern spans both columns */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -42px;
+  background-image:
+    linear-gradient(rgba(215, 242, 118, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(215, 242, 118, 0.055) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(ellipse 130% 110% at 35% 50%, black 10%, rgba(0,0,0,0.6) 50%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 130% 110% at 35% 50%, black 10%, rgba(0,0,0,0.6) 50%, transparent 85%);
+  pointer-events: none;
+  animation: gridDrift 18s linear infinite;
+  z-index: 0;
+}
+
 /* Left column */
 .left {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,6 +41,8 @@
 }
 
 .eyebrow {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -30,6 +51,7 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
+  animation: riseIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
 .eyebrowLine {
@@ -38,9 +60,13 @@
   height: 1px;
   background: var(--accent);
   flex-shrink: 0;
+  transform-origin: left center;
+  animation: lineGrow 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
 }
 
 .headline {
+  position: relative;
+  z-index: 1;
   margin: 0;
   font-family: 'Manrope', 'DM Sans', system-ui, sans-serif;
   font-size: clamp(2.8rem, 4.7vw, 5.5rem);
@@ -48,27 +74,35 @@
   line-height: 0.99;
   letter-spacing: -0.095em;
   color: var(--text-primary);
+  animation: riseIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
 .accentWord {
   color: var(--accent);
+  animation: glowPulse 3.5s ease-in-out 1.6s infinite;
 }
 
 .desc {
+  position: relative;
+  z-index: 1;
   margin: 0;
   font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.75;
   max-width: 50ch;
+  animation: riseIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
 }
 
 /* CTA row */
 .ctas {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 1.75rem;
   flex-wrap: wrap;
   margin-top: 0.5rem;
+  animation: riseIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.44s both;
 }
 
 .ctaPrimary {
@@ -90,6 +124,7 @@
 .ctaPrimary:hover {
   transform: translateY(-3px);
   background: #e5fb9d;
+  box-shadow: 0 0 24px rgba(215, 242, 118, 0.35), 0 8px 24px rgba(0,0,0,0.3);
 }
 
 .ctaSecondary {
@@ -120,7 +155,8 @@
 /* Right column */
 .rightCol {
   position: relative;
-  background: #000;
+  z-index: 1;
+  background: var(--bg-page);
   overflow: hidden;
 }
 
@@ -170,6 +206,59 @@
 .zone:focus-visible {
   outline: 1px solid var(--accent);
   outline-offset: -4px;
+}
+
+/* Ping dot — ripple to signal the zone is interactive */
+.zone::after {
+  content: '';
+  position: absolute;
+  bottom: 5.2rem;
+  left: 50%;
+  translate: -50% 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(215, 242, 118, 0.6);
+  animation: ping 2.2s cubic-bezier(0, 0, 0.2, 1) 0.8s infinite;
+  pointer-events: none;
+}
+
+.zone:hover::after,
+.zone:focus-visible::after {
+  animation: none;
+  opacity: 0;
+}
+
+/* Floating "hover to explore" pill on the photo panel */
+.hoverHint {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 1rem 0.42rem 0.8rem;
+  background: rgba(13, 13, 13, 0.72);
+  border: 1px solid rgba(215, 242, 118, 0.28);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(215, 242, 118, 0.85);
+  white-space: nowrap;
+  pointer-events: none;
+  animation: fadeUp 0.5s ease 1.4s both;
+  transition: opacity 0.4s ease;
+}
+
+.hoverHintHidden {
+  opacity: 0;
 }
 
 /* Name label that slides up on zone hover */
@@ -223,6 +312,39 @@
   text-transform: uppercase;
   color: var(--text-muted);
   max-width: none;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+/* ── Keyframes ───────────────────────────────────────────── */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: none; }
+  50%       { text-shadow: 0 0 32px rgba(215, 242, 118, 0.45), 0 0 64px rgba(215, 242, 118, 0.18); }
+}
+
+@keyframes gridDrift {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 42px 42px, 42px 42px; }
+}
+
+@keyframes ping {
+  0%        { box-shadow: 0 0 0 0 rgba(215, 242, 118, 0.7); opacity: 1; }
+  70%       { box-shadow: 0 0 0 10px rgba(215, 242, 118, 0); opacity: 0.6; }
+  100%      { box-shadow: 0 0 0 0 rgba(215, 242, 118, 0); opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Responsive ─────────────────────────────────────────── */

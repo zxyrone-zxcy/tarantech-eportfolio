@@ -54,7 +54,7 @@ export const members = [
 export const getMember = (id) => members.find((m) => m.id === id);
 
 // Performance tasks — Prelims (PT1–PT3), Midterm (PT4–PT6), Finals (PT7–PT9)
-// Scores are real data for Xyrone; other members pending.
+// Scores /modata for xy.
 const performanceTasks = [
   { task: 'Performance_Task_Skill #1 – This is ME.',          due: 'Jul 27',  term: 'Prelims', maxScore: '100' },
   { task: 'Performance_Task_Skill #2 – Sales Pitch',          due: 'Aug 7',   term: 'Prelims', maxScore: '100' },

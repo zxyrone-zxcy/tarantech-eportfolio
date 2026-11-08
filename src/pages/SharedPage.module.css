@@ -47,12 +47,62 @@
   padding: 1.25rem;
 }
 
+.tableScroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 /* Table styles */
 .table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
   font-size: 0.85rem;
   font-variant-numeric: tabular-nums;
+}
+
+.performanceTable {
+  min-width: 760px;
+}
+
+.assessmentTable {
+  min-width: 560px;
+}
+
+.performanceTable th:nth-child(1),
+.performanceTable td:nth-child(1) {
+  width: 36%;
+  overflow-wrap: anywhere;
+}
+
+.performanceTable th:nth-child(2),
+.performanceTable td:nth-child(2) {
+  width: 18%;
+}
+
+.performanceTable th:nth-child(3),
+.performanceTable td:nth-child(3),
+.performanceTable th:nth-child(4),
+.performanceTable td:nth-child(4) {
+  width: 10%;
+}
+
+.assessmentTable th:nth-child(1),
+.assessmentTable td:nth-child(1) {
+  width: 46%;
+  overflow-wrap: anywhere;
+}
+
+.assessmentTable th:nth-child(2),
+.assessmentTable td:nth-child(2) {
+  width: 22%;
+}
+
+.assessmentTable th:nth-child(3),
+.assessmentTable td:nth-child(3),
+.assessmentTable th:nth-child(4),
+.assessmentTable td:nth-child(4) {
+  width: 16%;
 }
 
 .table th {
@@ -95,7 +145,7 @@
 }
 
 .numeric {
-  text-align: right;
+  text-align: center;
 }
 
 .score {
