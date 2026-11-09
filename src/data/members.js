@@ -1,4 +1,8 @@
 import xyronePhoto from '../assets/MeMyself.jpg'
+import seminarReflectionXyrone from '../assets/Seminar Reflection-Xyrone.pdf'
+import seminarReflectionKeith  from '../assets/Speirs - Seminar Self Reflection-1.pdf'
+import seminarReflectionMatt   from '../assets/Self-Reflection Paper - Matt Mondares (1).pdf'
+import seminarReflectionGerald from '../assets/Seminar Reflection by Gerald Ebacuado (1).pdf'
 
 export const members = [
   {
@@ -55,36 +59,58 @@ export const getMember = (id) => members.find((m) => m.id === id);
 
 // Performance tasks — Prelims (PT1–PT3), Midterm (PT4–PT6), Finals (PT7–PT9)
 // Scores /modata for xy.
+const LINK_PRESENTING_ORALLY   = 'https://drive.google.com/drive/folders/1Z98GE93XMzzbG47JmSk9XQuj0qzdTZMi?usp=sharing';
+const LINK_PRESENTING_TEASER   = 'https://drive.google.com/drive/folders/1qq6hcUa6uzKfk2koU9E9KBkutJmf1C4f?classId=6d3dd095-3691-47ce-8d2c-1ddf168e2609&assignmentId=9b6590fa-89f8-46fb-b781-5d56a8a3afa1&submissionId=d7e72354-b11b-92c0-02ca-774078311db7';
+const LINK_SEMINAR_SERIES      = 'https://www.canva.com/design/DAHX1WNkIog/VJGTZIYU_89T5dTwqDPxbA/edit';
+const LINK_VISUAL_AIDS         = 'https://drive.google.com/drive/folders/1JY2YitiTPCCbONvhBf53zPKx0qvif4dx?usp=sharing';
+const LINK_GOOD_BAD_MATT_KEITH    = 'https://drive.google.com/drive/folders/1LOjZwYnP8eKoSoZheleqGS0G8mx32kdn?usp=drive_link';
+const LINK_PERSUADING_KEITH_MATT  = 'https://drive.google.com/file/d/1z974sRHCHDauSpdDy87bb8DXDwdm2mzd/view?usp=sharing';
+const LINK_THIS_IS_ME_MATT        = 'https://drive.google.com/file/d/1Rt-0pOa9yWeN2m5ApG9qt2IgKy54PiRC/view?usp=drive_link';
+
 const performanceTasks = [
-  { task: 'Performance_Task_Skill #1 – This is ME.',          due: 'Jul 27',  term: 'Prelims', maxScore: '100' },
-  { task: 'Performance_Task_Skill #2 – Sales Pitch',          due: 'Aug 7',   term: 'Prelims', maxScore: '100' },
-  { task: 'Project_Prelim_Skill #3 – Persuading People',      due: 'Aug 18',  term: 'Prelims', maxScore: '100' },
-  { task: 'Performance_Task_Skill #4 – Good and Bad Presentation', due: 'Sep 15', term: 'Midterm', maxScore: '100' },
-  { task: 'Performance_Task_Skill #5 – Presenting Orally',    due: 'Sep 20',  term: 'Midterm', maxScore: '100' },
-  { task: 'Project_MidTerm_Skill #6 – Presenting Audiovisuals', due: 'Sep 29', term: 'Midterm', maxScore: '0' },
-  { task: 'PSIT Seminar Series (Group Presentation)',          due: 'Oct 17',  term: 'Finals',  maxScore: '100' },
-  { task: 'Visual Aids and Materials',                         due: 'Oct 25',  term: 'Finals',  maxScore: '100' },
-  { task: 'Seminar Reflection',                                due: 'Nov 4',   term: 'Finals',  maxScore: '100' },
+  { task: 'Performance_Task_Skill #1 – This is ME.',               due: 'Jul 27',  term: 'Prelims', maxScore: '100', link: null },
+  { task: 'Performance_Task_Skill #2 – Sales Pitch',               due: 'Aug 7',   term: 'Prelims', maxScore: '100', link: null },
+  { task: 'Project_Prelim_Skill #3 – Persuading People',           due: 'Aug 18',  term: 'Prelims', maxScore: '100', link: null },
+  { task: 'Performance_Task_Skill #4 – Good and Bad Presentation',  due: 'Sep 15',  term: 'Midterm', maxScore: '100', link: null },
+  { task: 'Performance_Task_Skill #5 – Presenting Orally',          due: 'Sep 20',  term: 'Midterm', maxScore: '100', link: LINK_PRESENTING_ORALLY },
+  { task: 'Project_MidTerm_Skill #6 – Presenting Audiovisuals',     due: 'Sep 29',  term: 'Midterm', maxScore: '0',   link: LINK_PRESENTING_TEASER },
+  { task: 'PSIT Seminar Series (Group Presentation)',                due: 'Oct 17',  term: 'Finals',  maxScore: '100', link: LINK_SEMINAR_SERIES },
+  { task: 'Visual Aids and Materials',                               due: 'Oct 25',  term: 'Finals',  maxScore: '100', link: LINK_VISUAL_AIDS },
+  { task: 'Seminar Reflection',                                      due: 'Nov 4',   term: 'Finals',  maxScore: '100', link: null },
 ];
 
+// link field is spread from template; shared links (PT5–PT8) flow to all members automatically
 const makeBlankPTs = () =>
-  performanceTasks.map(({ task, due, term, maxScore }) => ({ task, due, term, score: '—', maxScore }));
+  performanceTasks.map(({ task, due, term, maxScore, link }) => ({ task, due, term, score: '—', maxScore, link }));
 
 export const performanceTasksData = {
   xyrone: [
-    { ...performanceTasks[0], score: '99'  },
-    { ...performanceTasks[1], score: '100' },
-    { ...performanceTasks[2], score: '95'  },
-    { ...performanceTasks[3], score: '1.5' },
-    { ...performanceTasks[4], score: '—'   },
-    { ...performanceTasks[5], score: '—'   },
-    { ...performanceTasks[6], score: '—'   },
-    { ...performanceTasks[7], score: '—'   },
-    { ...performanceTasks[8], score: '—'   },
+    { ...performanceTasks[0], score: '99',  link: 'https://drive.google.com/drive/folders/1kRdLv_3CljI9knQ9dTnymUQ2heuB94-r?usp=drive_link' },
+    { ...performanceTasks[1], score: '100', link: 'https://canva.link/gljtpg86jtp1vl4' },
+    { ...performanceTasks[2], score: '95',  link: 'https://canva.link/lsqslbupymk3qwv' },
+    { ...performanceTasks[3], score: '1.5', link: 'https://drive.google.com/drive/folders/1zazzuo9OaLQL_GAIRw7MjSJGpawhTS9F?usp=drive_link' },
+    { ...performanceTasks[4], score: '—' },
+    { ...performanceTasks[5], score: '—' },
+    { ...performanceTasks[6], score: '—' },
+    { ...performanceTasks[7], score: '—' },
+    { ...performanceTasks[8], score: '—', link: seminarReflectionXyrone },
   ],
-  keith:  makeBlankPTs(),
-  matt:   makeBlankPTs(),
-  gerald: makeBlankPTs(),
+  keith:  makeBlankPTs().map((pt, i) => {
+    if (i === 0) return { ...pt, link: 'https://drive.google.com/file/d/15ttux9XWUy4ddyajaquoAUDD2CAZM07a/view?usp=drive_link' };
+    if (i === 1) return { ...pt, link: 'https://drive.google.com/file/d/1TqXWGicOC1ZYvGlhAgNI0EIbVj1mSiM_/view?usp=drive_link' };
+    if (i === 2) return { ...pt, link: LINK_PERSUADING_KEITH_MATT };
+    if (i === 3) return { ...pt, link: LINK_GOOD_BAD_MATT_KEITH };
+    if (i === 8) return { ...pt, link: seminarReflectionKeith };
+    return pt;
+  }),
+  matt:   makeBlankPTs().map((pt, i) => {
+    if (i === 0) return { ...pt, link: LINK_THIS_IS_ME_MATT };
+    if (i === 2) return { ...pt, link: LINK_PERSUADING_KEITH_MATT };
+    if (i === 3) return { ...pt, link: LINK_GOOD_BAD_MATT_KEITH };
+    if (i === 8) return { ...pt, link: seminarReflectionMatt };
+    return pt;
+  }),
+  gerald: makeBlankPTs().map((pt, i) => i === 8 ? { ...pt, link: seminarReflectionGerald } : pt),
 };
 
 // Quizzes & exams — real names from Google Classroom

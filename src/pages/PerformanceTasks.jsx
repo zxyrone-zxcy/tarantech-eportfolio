@@ -24,7 +24,7 @@ export default function PerformanceTasks() {
                 <th>Date / Period</th>
                 <th className={styles.numeric}>Score</th>
                 <th className={styles.numeric}>Max</th>
-                <th>Remarks</th>
+                <th>Submission</th>
               </tr>
             </thead>
             <tbody>
@@ -34,7 +34,12 @@ export default function PerformanceTasks() {
                   <td className={styles.muted}>{row.term}{row.due ? ` · ${row.due}` : ''}</td>
                   <td className={`${styles.numeric} ${styles.score}`}>{row.score}</td>
                   <td className={`${styles.numeric} ${styles.muted}`}>{row.maxScore}</td>
-                  <td className={styles.muted}>{row.remarks}</td>
+                  <td>
+                  {row.link
+                    ? <a href={row.link} target="_blank" rel="noopener noreferrer" className={styles.submissionLink}>View ↗</a>
+                    : <span className={styles.muted}>—</span>
+                  }
+                </td>
                 </tr>
               ))}
             </tbody>

@@ -157,6 +157,21 @@
   color: var(--text-muted) !important;
 }
 
+.submissionLink {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: opacity 0.15s;
+}
+
+.submissionLink:hover {
+  opacity: 0.75;
+}
+
 .hint {
   margin: 0;
   font-size: 0.76rem;
