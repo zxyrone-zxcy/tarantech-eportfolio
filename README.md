@@ -1,19 +1,89 @@
-# React + Vite
+# Tarantech E-Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ITC309-301I — Presentation Skills for IT**
+Final Requirement | A.Y. 2025–2026
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+This is a web-based e-portfolio developed as the final requirement for **ITC309-301I: Presentation Skills for IT**. It documents the academic performance, submitted outputs, and personal reflections of four IT students throughout the semester — covering Prelims, Midterm, and Final Term periods.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+The site serves as a centralized, accessible record of each member's growth in professional communication and presentation skills.
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+---
 
-## Expanding the ESLint configuration
+## Members
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Name | Portfolio |
+|---|---|
+| Xyrone Edmund Zamudio | `/member/xyrone` |
+| Keith Speirs | `/member/keith` |
+| Matt Mondares | `/member/matt` |
+| Gerald Ebacuado | `/member/gerald` |
+
+---
+
+## Features
+
+Each member's portfolio includes:
+
+- **Performance Tasks** — All nine graded performance tasks with scores and direct links to submitted files and presentations
+- **Quizzes & Exams** — Scores for all quizzes and examinations taken during the semester
+- **Reflection** — Written reflections for Prelims, Midterm, and Final Term periods
+
+---
+
+## Performance Tasks Covered
+
+| # | Title | Term |
+|---|---|---|
+| PT1 | This is ME | Prelims |
+| PT2 | Sales Pitch | Prelims |
+| PT3 | Persuading People | Prelims |
+| PT4 | Good and Bad Presentation | Midterm |
+| PT5 | Presenting Orally | Midterm |
+| PT6 | Presenting Audiovisuals | Midterm |
+| PT7 | PSIT Seminar Series (Group Presentation) | Finals |
+| PT8 | Visual Aids and Materials | Finals |
+| PT9 | Seminar Reflection | Finals |
+
+---
+
+## Tech Stack
+
+- **React 19** with React Router v6
+- **Vite** (build tool)
+- **CSS Modules** (scoped component styling)
+- **JavaScript (ES2022+)**
+
+---
+
+## Running the Project
+
+```bash
+npm install
+npm run dev
+```
+
+<<<<<<< HEAD
+The app will be available when deployed
+=======
+
+---
+
+## Project Structure
+
+```
+src/
+├── assets/          # Photos, PDFs, and other static files
+├── components/      # Shared UI components (Navbar, MemberCard)
+├── data/            # Member data, performance tasks, quizzes
+├── pages/           # Page components and CSS modules
+└── App.jsx          # Route configuration
+```
+
+---
+
+*Submitted in partial fulfillment of the requirements for ITC309-301I.*
+*Tarantech Group | 2025–2026*
