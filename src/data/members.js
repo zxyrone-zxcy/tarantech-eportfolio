@@ -110,7 +110,14 @@ export const performanceTasksData = {
     if (i === 8) return { ...pt, link: seminarReflectionMatt };
     return pt;
   }),
-  gerald: makeBlankPTs().map((pt, i) => i === 8 ? { ...pt, link: seminarReflectionGerald } : pt),
+  gerald: makeBlankPTs().map((pt, i) => {
+    if (i === 0) return { ...pt, link: 'https://drive.google.com/file/d/1BmspsbrLQrF8SqQV0MOem9dGT_IxOECJ/view?usp=sharing' };
+    if (i === 1) return { ...pt, link: 'https://drive.google.com/file/d/1f9E61sLraN-EzQgpFkHp8B0Nxt1Fp4zh/view?usp=sharing' };
+    if (i === 2) return { ...pt, link: 'https://drive.google.com/file/d/1jg0SSrB6m4acdzrgACvXsMlu65X-xKOB/view?usp=sharing' };
+    if (i === 3) return { ...pt, link: 'https://drive.google.com/file/d/1sf6p2zx5XAemlXrH-0ZM2BVWKAVamg7T/view?usp=sharing' };
+    if (i === 8) return { ...pt, link: seminarReflectionGerald };
+    return pt;
+  }),
 };
 
 // Quizzes & exams — real names from Google Classroom
