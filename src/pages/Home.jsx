@@ -94,7 +94,7 @@ export default function Home() {
             <div className={styles.edgeFade} aria-hidden="true" />
           </div>
 
-          <p className={styles.cornerLabel}>Group ePortfolio / 2024</p>
+          <p className={styles.cornerLabel}>Tarantech Group</p>
         </div>
       </section>
 
