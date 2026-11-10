@@ -1,4 +1,7 @@
 import xyronePhoto from '../assets/MeMyself.jpg'
+import keithPhoto   from '../assets/KeithS-cutout.png'
+import mattPhoto    from '../assets/MattM-cutout.png'
+import geraldPhoto  from '../assets/GeraldE-cutout.png'
 import seminarReflectionXyrone from '../assets/Seminar Reflection-Xyrone.pdf'
 import seminarReflectionKeith  from '../assets/Speirs - Seminar Self Reflection-1.pdf'
 import seminarReflectionMatt   from '../assets/Self-Reflection Paper - Matt Mondares (1).pdf'
@@ -22,7 +25,7 @@ export const members = [
     name: 'Keith Speirs',
     shortName: 'Keith',
     initials: 'KS',
-    photo: null,
+    photo: keithPhoto,
     reflection: {
       prelims: `The Prelims gave me a solid foundation in presentation principles. I learned the importance of preparation, voice modulation, and eye contact. Each presentation task pushed me to think more critically about how I convey technical information to non-technical audiences.`,
       midterm: `During the Midterm, I explored advanced presentation techniques including data visualization and narrative structure. I improved my ability to tell a story through data and create slides that support rather than overwhelm the speaker. Group work taught me adaptability and time management.`,
@@ -34,7 +37,7 @@ export const members = [
     name: 'Matt Mondares',
     shortName: 'Matt',
     initials: 'MM',
-    photo: null,
+    photo: mattPhoto,
     reflection: {
       prelims: `In the Prelims, I discovered my baseline presentation skills and identified areas for growth. The subject helped me understand that effective presentations are not just about the content but also about how you deliver it. I worked on managing nervousness and projecting a confident demeanor.`,
       midterm: `The Midterm challenged me to level up my presentation design skills. I learned to create concise, impactful slides and to practice deliberate pacing. Receiving feedback from my professors and classmates helped me identify blind spots in my delivery style.`,
@@ -46,7 +49,7 @@ export const members = [
     name: 'Gerald Ebacuado',
     shortName: 'Gerald',
     initials: 'GE',
-    photo: null,
+    photo: geraldPhoto,
     reflection: {
       prelims: `The Prelims period was an eye-opening introduction to professional presentation in an IT context. I learned that strong technical skills must be complemented by effective communication. Working on structured presentations helped me organize my thoughts more clearly.`,
       midterm: `During the Midterm, I focused on improving my visual communication skills. I explored different slide layouts, typography choices, and how to present complex technical topics in an accessible way. Collaborating with my group deepened my appreciation for diverse perspectives in problem-solving.`,
