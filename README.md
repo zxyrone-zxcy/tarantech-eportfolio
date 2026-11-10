@@ -66,9 +66,7 @@ npm install
 npm run dev
 ```
 
-<<<<<<< HEAD
-The app will be available when deployed
-=======
+The app will be available once deployed on Vercel.
 
 ---
 
